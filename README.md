@@ -1,2 +1,2 @@
 # MemoryGame-SsangQ
-This is t the memory game for Udacity Project
+This is the memory game for Udacity Project
