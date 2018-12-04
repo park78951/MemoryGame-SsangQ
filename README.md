@@ -1,20 +1,24 @@
 # Memory Game Project
 
-## Table of Contents
+This is for the project by the course "Front-end Web Developer Nonodegree" from [Udacity](www.Udacity.com)
 
-* [Instructions](#instructions)
-* [Contributing](#contributing)
+## What is this?
 
-## Instructions
+This is a game to improve your memory by matching 2 cards.
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## How to play?
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+1. You can click and open whatever you want and have to match 2 cards by memorizing cards you opened.
+2. You can open only 2 cards one time and the open cards will
+be flipped back over if 2 cards don't match.
+3. There are total 16 cards and 8 pairs of cards which have the same icons.
+4. You can get 3 stars when the 'moves' is to 13 and 2 stars when the 'moves' is from 14 to 17. From 18, I'm sorry that you can get only 1 star.
+5. Limit time is 10 minutes. (enough time to have lunch during the game!)
+6. Just Enjoy it!
 
-## Contributing
 
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
+## How to build?
 
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Basic template was provided by Udacity and I input codes for Javascript and some parts of HTML and CSS. As a beginner, I studied codes and how to manipulate them from many websites, for this reason I refered to some parts of Javascript codes. I didn't coppy all the codes, but if you find some problems or plagiarization, please let me know.
+Thanks and just enjoy this.

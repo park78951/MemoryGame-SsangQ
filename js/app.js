@@ -2,31 +2,31 @@
  * Create a list that holds all of your cards
  */
 
+//Rating Stars
 const stars = document.querySelectorAll('.fa-star');
 
+//Count and Timer
 let moves = document.querySelector('.moves');
 let timer = document.querySelector('.timer');
 let count = 0;
 
+//Start and Restart Button
 const btnStart = document.querySelector('.start');
 
-
+//Deck and List of Cards in the Deck
+let deck = document.querySelector('.deck');
 let cards = document.querySelectorAll('.card');
+//Temporary Array for Cards when Click
 let openCards = [];
 
-
+//Element where match class was added when 2 cards match
 let matchedCards = document.getElementsByClassName('match');
 
-
-let deck = document.querySelector('.deck');
-
+//Modal Pop-up and relevant elements
 const modal = document.querySelector('.modal');
-
 const modalContent = document.querySelector('.modal-content');
-
 const btnRestart = document.querySelector('.btn-retry');
 const btnClose = document.querySelector('.btn-close');
-
 
 /*
  * Display the cards on the page
@@ -49,7 +49,6 @@ function shuffle(array) {
 
     return array;
 }
-
 
 /*
  * set up the event listener for a card. If a card is clicked:
@@ -90,6 +89,9 @@ function initGame() {
     //to initialize moves
     count = 0;
     moves.innerHTML = count;
+    //to initialize star rating
+    stars[2].style.visibility = "visible";
+    stars[1].style.visibility = "visible";
     //to initialize timer
     clearInterval(interval);
     sec = 0;
@@ -207,12 +209,20 @@ function setTimer(){
             hour++;
             min = 0;
         }
-        //to set a limited time 
+        //to set a limited time
         if (min === 10 && sec === 1){
+            stars[2].style.visibility = "collapse";
+            stars[1].style.visibility = "collapse";
+            count = 99
             modalPop();
         }
     }, 1000);
 }
+
+//Set variables only to use in function relevant to Modal Pop-up
+let modalScore = document.querySelector('.modal-score');
+let modalRating = document.querySelector('.modal-rating');
+let modalTakenTime = document.querySelector('.modal-takenTime');
 
 //To pop up the modal when game is finished
 function modalPop() {
@@ -222,24 +232,32 @@ function modalPop() {
     modal.classList.add('show-modal');
     //to set the comment depending on the stars and moves
     if(count < 14) {
-        document.querySelector('.modal-score').innerHTML = "<strong>Fantastic!</strong>";
-    } else if (count > 14 && count < 18) {
-        document.querySelector('.modal-score').innerHTML = "<strong>Good Job!</strong>";
+        modalScore.innerHTML = "<strong>Fantastic!</strong>";
+    } else if (count >= 14 && count < 18) {
+        modalScore.innerHTML = "<strong>Good Job!</strong>";
     } else {
-        document.querySelector('.modal-score').innerHTML = "<strong>Nice Try!</strong>";
+        modalScore.innerHTML = "<strong>Nice Try!</strong>";
     }
     //to show stars users get
-    document.querySelector('.modal-rating').innerHTML = document.querySelector('.stars').innerHTML;
+    modalRating.innerHTML = document.querySelector('.stars').innerHTML;
     //to show time users used
-    document.querySelector('.modal-takenTime').innerHTML = timer.innerHTML;
+    modalTakenTime.innerHTML = timer.innerHTML;
     //button for retry
     btnRestart.addEventListener('click', function(){
         initGame();
-        modal.classList.remove('show-modal');
+        initModal();
         cardPlay();
     });
     //button for cancel to see the result and cards
     btnClose.addEventListener('click', function(){
-        modal.classList.remove('show-modal');
+        initModal();
     });
+}
+
+// To initialize Modal Pop-up (remove class and contents)
+function initModal() {
+    modal.classList.remove('show-modal');
+    modalScore.innerHTML = "";
+    modalRating.innerHTML = "";
+    modalTakenTime.innerHTML = "";
 }
