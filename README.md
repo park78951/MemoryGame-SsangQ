@@ -2,6 +2,9 @@
 
 This is for the project by the course "Front-end Web Developer Nonodegree" from [Udacity](www.Udacity.com)
 
+## Memory Game Demo
+![Memory Game](https://user-images.githubusercontent.com/37759759/66288913-0d1bf880-e916-11e9-81a9-92d80eebe1e7.gif)
+
 ## What is this?
 
 This is a game to improve your memory by matching 2 cards.
